@@ -1,0 +1,15 @@
+{
+  "name": "Knowledge Base Search - Integration",
+  "description": "Tests that the KnowledgeRetriever returns relevant documentation when a user describes a known issue (e.g., VPN setup).",
+  "test_type": "integration",
+  "input": "A user_input describing a VPN setup issue passed to process_step.",
+  "output": "ErrorResponse with error_message containing VPN setup instructions from the knowledge base.",
+  "success_criteria": [
+    "ErrorResponse.error_message contains VPN setup instructions",
+    "KnowledgeRetriever.search_knowledge is called with the correct query"
+  ],
+  "error_scenarios": [
+    "KnowledgeRetriever returns no match",
+    "KnowledgeRetriever service failure"
+  ]
+}

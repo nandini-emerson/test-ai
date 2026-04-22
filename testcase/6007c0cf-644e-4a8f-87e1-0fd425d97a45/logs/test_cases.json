@@ -1,0 +1,11 @@
+[
+  {
+    "id": "test_1",
+    "name": "Start Onboarding - Functional",
+    "description": "Test: Start Onboarding - Functional",
+    "type": "functional",
+    "status": "failed",
+    "duration": 0.0,
+    "error": "self = <test_agent.TestOnboardingFunctional object at 0x7fb1e0289510>\nclient = <starlette.testclient.TestClient object at 0x7fb1dff1e090>\nvalid_user_context = {'department': 'Engineering', 'employee_id': 'EMP12345', 'operating_system': 'Windows 10', 'role': 'Software Engineer'}\nmock_step_response = {'estimated_time': 10, 'next_action': 'Download and install the company VPN client using the provided link.', 'step': 'Install VPN client'}\n\n    def test_start_onboarding_functional(\n        self, client, valid_user_context, mock_step_response\n    ):\n        \"\"\"\n        Validates that the /start endpoint successfully initiates a new onboarding session\n        and returns the first onboarding step.\n        \"\"\"\n        # Patch the backend logic that generates the onboarding step\n        with patch(\"app.api.onboarding.generate_first_step\", return_value=mock_step_response):\n            response = client.post(\"/start\", json=valid_user_context)\n            assert response.status_code == 200, \"Expected HTTP 200 OK\"\n            data = response.json()\n            # Check response structure\n            assert isinstance(data, dict), \"Response should be a dict\"\n>           assert \"step\" in data and isinstance(data[\"step\"], str) and data[\"step\"], \"step must be a non-empty string\"\nE           AssertionError: step must be a non-empty string\nE           assert ('step' in {'department': 'Engineering', 'employee_id': 'EMP12345', 'operating_system': 'Windows 10', 'role': 'Software Engineer', ...})\n\ntest_agent.py:65: AssertionError"
+  }
+]

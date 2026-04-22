@@ -1,0 +1,16 @@
+{
+  "name": "Business Rule Enforcement - Functional",
+  "description": "Ensures that forbidden actions (e.g., password sharing) are blocked by business rules and return appropriate error responses.",
+  "test_type": "functional",
+  "input": "StepInput with user_input containing the word 'password'.",
+  "output": "ErrorResponse with error_type 'ACCESS_DENIED' and appropriate error_message.",
+  "success_criteria": [
+    "Response is of type ErrorResponse",
+    "error_type is 'ACCESS_DENIED'",
+    "error_message explains password policy"
+  ],
+  "error_scenarios": [
+    "BusinessRulesEngine misconfiguration",
+    "Unexpected input format"
+  ]
+}

@@ -1,7 +1,7 @@
-# Company Policy Q&A Agent
+# IT Setup Guide Agent
 
 ## Overview
-Company Policy Q&A Agent is a formal human_resources agent designed for text interactions.
+IT Setup Guide Agent is a professional, friendly, patient, encouraging, detail-oriented, supportive general agent designed for text interactions.
 
 ## Features
 
@@ -34,12 +34,12 @@ The agent uses the following environment variables:
 ## Usage
 
 ```python
-from agent import Company Policy Q&A AgentAgent
+from agent import IT Setup Guide AgentAgent
 
-agent = Company Policy Q&A AgentAgent()
+agent = IT Setup Guide AgentAgent()
 response = await agent.process_message("Hello!")
 ```
 
-## Domain: human_resources
-## Personality: formal
+## Domain: general
+## Personality: professional, friendly, patient, encouraging, detail-oriented, supportive
 ## Modality: text

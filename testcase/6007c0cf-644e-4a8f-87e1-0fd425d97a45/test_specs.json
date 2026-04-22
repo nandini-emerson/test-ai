@@ -1,0 +1,19 @@
+{
+  "name": "Start Onboarding - Functional",
+  "description": "Validates that the /start endpoint successfully initiates a new onboarding session and returns the first onboarding step.",
+  "test_type": "functional",
+  "input": "A valid UserContext payload with employee_id, role, department, and operating_system.",
+  "output": "A StepResponse object containing the first onboarding step, estimated time, and next_action.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response is of type StepResponse",
+    "step field is a non-empty string",
+    "estimated_time is present",
+    "next_action contains onboarding instructions"
+  ],
+  "error_scenarios": [
+    "Missing required fields in UserContext",
+    "Invalid field values (e.g., too short/long)",
+    "Internal server error"
+  ]
+}

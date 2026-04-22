@@ -1,0 +1,18 @@
+{
+  "name": "Create Ticket - Functional",
+  "description": "Validates that the /ticket endpoint creates an IT helpdesk ticket when consent is given and returns the correct response.",
+  "test_type": "functional",
+  "input": "A valid TicketRequest payload with employee_id, error_details, and consent=true.",
+  "output": "A TicketResponse object with a ticket_id and success message.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response is of type TicketResponse",
+    "ticket_id is present and formatted correctly",
+    "message confirms ticket creation"
+  ],
+  "error_scenarios": [
+    "consent is false (should return ErrorResponse with TICKET_CREATION_FAIL)",
+    "Missing or invalid fields in TicketRequest",
+    "Simulated ticket creation failure"
+  ]
+}

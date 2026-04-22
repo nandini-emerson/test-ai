@@ -1,0 +1,16 @@
+{
+  "name": "Session Resume and Progress Save - Integration",
+  "description": "Tests the integration between ChatSessionManager and ProgressPersistenceService for session resumption and progress saving.",
+  "test_type": "integration",
+  "input": "Start a session, then update and save progress, then resume the session.",
+  "output": "Session data is correctly persisted and retrieved.",
+  "success_criteria": [
+    "Session data after resume matches the last saved state",
+    "ProgressPersistenceService.save_progress returns True",
+    "AuditLogger logs SESSION_START, PROGRESS_SAVE, and SESSION_RESUME events"
+  ],
+  "error_scenarios": [
+    "Attempt to resume a non-existent session",
+    "Persistence layer failure"
+  ]
+}

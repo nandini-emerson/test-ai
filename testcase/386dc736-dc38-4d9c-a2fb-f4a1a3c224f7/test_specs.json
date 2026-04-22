@@ -1,0 +1,18 @@
+{
+  "name": "Process Step - Integration",
+  "description": "Tests the /step endpoint workflow, including session resumption, business rule validation, LLM call, and knowledge base fallback.",
+  "test_type": "integration",
+  "input": "A valid StepInput payload for an existing session, with user_input simulating both 'YES' and an issue description.",
+  "output": "StepResponse if step completed, or ErrorResponse if an issue is described.",
+  "success_criteria": [
+    "Returns StepResponse when user_input is 'YES'",
+    "Session's current_step is incremented",
+    "Returns ErrorResponse with error_type 'STEP_ISSUE' when user_input describes an issue",
+    "ErrorResponse includes knowledge base answer in error_message"
+  ],
+  "error_scenarios": [
+    "No active session for employee_id",
+    "user_input contains forbidden content (e.g., password)",
+    "LLM service failure"
+  ]
+}

@@ -1,13 +1,13 @@
 import pytest
 import asyncio
 from unittest.mock import Mock, patch
-from agent import CompanyPolicyQAAgentAgent
+from agent import ItSetupGuideAgentAgent
 
-class TestCompanyPolicyQAAgentAgent:
+class TestItSetupGuideAgentAgent:
     
     @pytest.fixture
     def agent(self):
-        return CompanyPolicyQAAgentAgent()
+        return ItSetupGuideAgentAgent()
     
     @pytest.mark.asyncio
     async def test_process_message(self, agent):
